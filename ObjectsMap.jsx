@@ -10,17 +10,10 @@ import 'leaflet/dist/leaflet.css';
 import './styles.css';
 
 function CustomMarkerMap() {
-  const position = [51.505, -0.09];
+  const position = [-3.73839, -38.5234];
 
   // Estado para controlar a camada atual
-  const [currentLayer, setCurrentLayer] = useState('openstreetmap'); // 'openstreetmap' é a camada padrão
-
-  // Função para alternar a camada
-  const toggleLayer = () => {
-    setCurrentLayer((prevLayer) =>
-      prevLayer === 'openstreetmap' ? 'google' : 'openstreetmap'
-    );
-  };
+  const [currentLayer, setCurrentLayer] = useState('openstreetmap');
 
   // Função para obter a URL da camada com base na camada atual
   const getLayerUrl = () => {
@@ -35,13 +28,10 @@ function CustomMarkerMap() {
 
   return (
     <div>
-      {/* Botão para alternar entre as camadas */}
-      <button onClick={toggleLayer}>Alternar Camada</button>
-
       {/* Mapa */}
       <MapContainer
         center={position}
-        zoom={8}
+        zoom={15}
         className="map-container"
         maxZoom={13}
         minZoom={5}
@@ -59,4 +49,3 @@ function CustomMarkerMap() {
 }
 
 export default CustomMarkerMap;
-
